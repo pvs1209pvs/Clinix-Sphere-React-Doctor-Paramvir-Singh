@@ -1,25 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import { Pres } from './Pres';
+import { Appt } from './Appt';
+import { NavLink, Route, Routes } from 'react-router-dom';
+import { SignUp } from './SignUp';
+import { SignIn } from './SignIn';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+	return (
+	<div>
+			
+			<div style={{
+				display:"flex",
+				flexDirection: "row",
+				gap: "8px"
+			}}>
+
+				<NavLink to="/appt">View Appointments</NavLink>
+				<NavLink to="/signup">Sign Up</NavLink>
+				<NavLink to="/signin">Sign In</NavLink>
+
+			</div>
+
+			<Routes>
+				<Route path="/appt" element={<Appt />} />
+				<Route path="/pres" element={<Pres />} />
+				<Route path="/signup" element={<SignUp />} />
+				<Route path="/signin" element={<SignIn />} />
+			</Routes>
+
+		</div>
+
+	);
+
+
 }
 
-export default App;
+export default App
