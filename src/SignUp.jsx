@@ -33,7 +33,7 @@ export function SignUp() {
     async function signUpCall() {
 
         const response = await fetch(
-            "http://localhost:8080/signup/doctor",
+            "https://clinix-sphere-express-backend-param.vercel.app/signup/doctor",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

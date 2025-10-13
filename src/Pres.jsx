@@ -27,14 +27,16 @@ export function Pres() {
 
     async function addPres() {
 
-        const response = await fetch("http://localhost:8080/pres", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(pres)
-        })
+        const response = await fetch(
+            "https://clinix-sphere-express-backend-param.vercel.app/pres",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(pres)
+            })
 
         if (!response.ok) {
             throw new Error(response.statusText)
@@ -47,7 +49,7 @@ export function Pres() {
     async function markAppointmentAsCompleted() {
 
         const response = await fetch(
-            `http://localhost:8080/appt/update/${pres._id}`,
+            `https://clinix-sphere-express-backend-param.vercel.app/appt/update/${pres._id}`,
             {
                 method: "POST",
                 headers: {

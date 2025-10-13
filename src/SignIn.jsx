@@ -29,7 +29,7 @@ export function SignIn() {
     async function signInApiCall() {
 
         const response = await fetch(
-            "http://localhost:8080/login/doctor",
+            "https://clinix-sphere-express-backend-param.vercel.app/login/doctor",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

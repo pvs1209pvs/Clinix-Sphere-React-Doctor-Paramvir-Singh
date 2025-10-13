@@ -14,7 +14,9 @@ export function Appt() {
         const params = new URLSearchParams();
         params.append("docId", docId)
 
-        const response = await fetch(`http://localhost:8080/appt?${params}`,
+
+        const response = await fetch(
+            `https://clinix-sphere-express-backend-param.vercel.app/appt?${params}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
