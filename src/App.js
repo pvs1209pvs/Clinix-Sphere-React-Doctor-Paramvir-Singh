@@ -5,21 +5,77 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import { SignUp } from './SignUp';
 import { SignIn } from './SignIn';
 
+export const inputStyle = {
+	padding: "8px",
+	borderRadius: "8px",
+	border: "1px solid",
+}
+
+export const buttonStyle = {
+	padding: "8px",
+	borderRadius: "8px",
+	backgroundColor: "#333",
+	color: "#fff",
+}
+
+export const thStyle = { padding: "16px", textAlign: "left", borderBottom: "1px solid #ddd" }
+export const trStyle = { padding: "16px" }
+
+export const tableStyle = {
+	width: "100%",
+	borderCollapse: "collapse",
+	marginBottom: "16px",
+	backgroundColor: "#fff",
+	borderRadius: "8px",
+}
 function App() {
 
+	const navLinkStyle = {
+		textDecoration: "none",
+		padding: "12px",
+		borderRadius: "6px",
+		border: "1px solid",
+	};
 
 	return (
-	<div>
-			
-			<div style={{
-				display:"flex",
-				flexDirection: "row",
-				gap: "8px"
-			}}>
 
-				<NavLink to="/appt">View Appointments</NavLink>
-				<NavLink to="/signup">Sign Up</NavLink>
-				<NavLink to="/signin">Sign In</NavLink>
+		<div style={{ minHeight: "100vh" }}>
+
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					gap: "16px",
+					padding: "16px",
+				}}
+			>
+
+				<NavLink
+					to="/appt"
+					style={navLinkStyle}
+					onMouseOver={(e) => (e.target.style.backgroundColor = "#eee")}
+					onMouseOut={(e) => (e.target.style.backgroundColor = "transparent")}
+				>
+					View Appointments
+				</NavLink>
+
+				<NavLink
+					to="/signup"
+					style={navLinkStyle}
+					onMouseOver={(e) => (e.target.style.backgroundColor = "#eee")}
+					onMouseOut={(e) => (e.target.style.backgroundColor = "transparent")}
+				>
+					Sign Up
+				</NavLink>
+
+				<NavLink
+					to="/signin"
+					style={navLinkStyle}
+					onMouseOver={(e) => (e.target.style.backgroundColor = "#eee")}
+					onMouseOut={(e) => (e.target.style.backgroundColor = "transparent")}
+				>
+					Sign In
+				</NavLink>
 
 			</div>
 
@@ -29,12 +85,9 @@ function App() {
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/signin" element={<SignIn />} />
 			</Routes>
-
 		</div>
-
 	);
-
-
 }
+
 
 export default App

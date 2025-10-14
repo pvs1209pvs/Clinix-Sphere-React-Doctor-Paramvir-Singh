@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "./AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { buttonStyle, inputStyle } from "./App";
 
 
 export function SignUp() {
@@ -45,20 +46,82 @@ export function SignUp() {
         navigate("/appt")
     }
 
+    // const inputStyle = {
+    //     padding: "8px",
+    //     borderRadius: "8px",
+    //     border: "1px solid",
+    // }
+
 
     return (
-        <div>
-            <div>
-                <h2>Sign Up</h2>
-                <form onSubmit={handleSubmit}>
-                    <input name="name" placeholder="Name" value={user.name} onChange={handleChange} required />
-                    <input name="address" placeholder="Address" value={user.address} onChange={handleChange} required />
-                    <input name="username" placeholder="Username" value={user.username} onChange={handleChange} required />
-                    <input name="password" placeholder="Password" value={user.password} onChange={handleChange} required type="password" />
-                    <button type="submit">Create Account</button>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                                 paddingTop: "10vh",
+
+            }}
+        >
+            <div
+                style={{
+                    padding: "36px",
+                    borderRadius: "8px",
+                    border: "1px solid",
+                    width: "360px",
+                    textAlign: "center",
+                }}
+            >
+                <h2 style={{ marginBottom: "24px" }}>Sign Up</h2>
+                <form
+                    onSubmit={handleSubmit}
+                    style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+                >
+                    <input
+                        name="name"
+                        placeholder="Name"
+                        value={user.name}
+                        onChange={handleChange}
+                        required
+                        style={inputStyle}
+                    />
+                    <input
+                        name="address"
+                        placeholder="Address"
+                        value={user.address}
+                        onChange={handleChange}
+                        required
+                        style={inputStyle}
+                    />
+                    <input
+                        name="username"
+                        placeholder="Username"
+                        value={user.username}
+                        onChange={handleChange}
+                        required
+                        style={inputStyle}
+                    />
+                    <input
+                        name="password"
+                        placeholder="Password"
+                        type="password"
+                        value={user.password}
+                        onChange={handleChange}
+                        required
+                        style={inputStyle}
+                    />
+                    <button
+                        type="submit"
+                        style={buttonStyle}
+                        onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
+                        onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}
+                    >
+                        Create Account
+                    </button>
                 </form>
             </div>
         </div>
     );
+
 
 }

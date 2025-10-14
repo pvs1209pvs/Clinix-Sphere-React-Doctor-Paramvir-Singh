@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
+import { buttonStyle, inputStyle } from "./App";
 
 export function Pres() {
 
@@ -90,19 +91,57 @@ export function Pres() {
 
 
     return (
-        <div>
-            <div>
+        <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingTop: "10vh",
+
+        }}>
+            <div style={{
+                padding: "36px",
+                borderRadius: "8px",
+                border: "1px solid",
+                width: "50%",
+                textAlign: "center",
+            }}>
                 <h2>Create Prescription</h2>
-                <form onSubmit={handleSubmit}>
-                    <input name="patientName" placeholder="Patient Name" value={pres.forPatient} required readOnly />
-                    <input name="symptoms" placeholder="Symptoms" value={pres.symptoms} onChange={handleChange} required />
-                    <input name="diagnosis" placeholder="Diagnosis" value={pres.diagnosis} onChange={handleChange} required />
-                    <input name="medName" placeholder="Med Name" value={pres.medName} onChange={handleChange} required />
-                    <input name="medDose" placeholder="Med Dose" value={pres.medDose} onChange={handleChange} required />
-                    <input name="medDur" placeholder="Med Duration" value={pres.medDur} onChange={handleChange} required />
-                    <input name="notes" placeholder="Notes" value={pres.notes} onChange={handleChange} required />
-                    <button type="submit">Submit</button>
-                    <button type="button" onClick={() => navigate(-1)}>Cancel</button>
+                <form onSubmit={handleSubmit} style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "8px",
+                }}>
+                    <input name="patientName" placeholder="Patient Name" value={pres.forPatient} required readOnly style={inputStyle} />
+                    <input name="symptoms" placeholder="Symptoms" value={pres.symptoms} onChange={handleChange} required style={inputStyle} />
+                    <input name="diagnosis" placeholder="Diagnosis" value={pres.diagnosis} onChange={handleChange} required style={inputStyle} />
+                    <input name="medName" placeholder="Med Name" value={pres.medName} onChange={handleChange} required style={inputStyle} />
+                    <input name="medDose" placeholder="Med Dose" value={pres.medDose} onChange={handleChange} required style={inputStyle} />
+                    <input name="medDur" placeholder="Med Duration" value={pres.medDur} onChange={handleChange} required style={inputStyle} />
+                    <input name="notes" placeholder="Notes" value={pres.notes} onChange={handleChange} required style={inputStyle} />
+
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                        gap: "8px"
+                    }}>
+
+                        <button
+                            type="submit"
+                            style={{...buttonStyle, flex: 1}}
+                            onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
+                            onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}>
+                            Submit
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => navigate(-1)}
+                            style={{...buttonStyle, flex: 1}}
+                            onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
+                            onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}>
+                            Cancel
+                        </button>
+                    </div>
+
                 </form>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
+import { buttonStyle, inputStyle } from "./App";
 
 export function SignIn() {
 
@@ -46,17 +47,60 @@ export function SignIn() {
     }
 
 
+
     return (
-        <div>
-            <div>
-                <h2>Log In</h2>
-                <form onSubmit={handleSubmit}>
-                    <input name="username" placeholder="Username" value={user.username} onChange={handleChange} required />
-                    <input name="password" placeholder="Password" value={user.password} onChange={handleChange} required type="password"/>
-                    <button type="submit">Log In</button>
+        <div
+            style={{
+                 paddingTop: "10vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
+            <div
+                style={{
+                    padding: "36px",
+                    borderRadius: "8px",
+                    border: "1px solid",
+                    width: "360px",
+                    textAlign: "center",
+                }}
+            >
+
+                <h2 style={{ marginBottom: "24px", color: "#222" }}>Log In</h2>
+
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+
+                    <input
+                        name="username"
+                        placeholder="Username"
+                        value={user.username}
+                        onChange={handleChange}
+                        required
+                        style={inputStyle}
+                    />
+
+                    <input
+                        name="password"
+                        placeholder="Password"
+                        type="password"
+                        value={user.password}
+                        onChange={handleChange}
+                        required
+                        style={inputStyle}
+                    />
+                    <button
+                        type="submit"
+                        style={buttonStyle}
+                        onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
+                        onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}
+                    >
+                        Log In
+                    </button>
                 </form>
             </div>
         </div>
     );
+
 
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
+import { buttonStyle, tableStyle, thStyle, trStyle } from './App';
 
 export function Appt() {
 
@@ -67,6 +68,8 @@ export function Appt() {
         navigate("/signin")
     }
 
+
+
     return (
         <>
 
@@ -88,34 +91,59 @@ export function Appt() {
             {
                 token &&
                 appt.length > 0 &&
-                <div>
-                    <h3>Welcome Dr {docId}</h3>
-                    <table border="1" cellPadding="5" cellSpacing="0">
-                        <thead>
+
+                <div
+                    style={{
+                        padding: "24px",
+
+                    }}
+                >
+                    <h3 style={{ marginBottom: "16px", color: "#222" }}>Welcome Dr {docId}</h3>
+
+                    <table
+                        style={tableStyle}
+                    >
+                        <thead style={{ backgroundColor: "#eee" }}>
                             <tr>
-                                <th>Doctor Name</th>
-                                <th>Patient Name</th>
-                                <th>Status</th>
-                                <th>Time</th>
-                                <th>Action </th>
+                                <th style={thStyle}>Doctor Name</th>
+                                <th style={thStyle}>Patient Name</th>
+                                <th style={thStyle}>Status</th>
+                                <th style={thStyle}>Time</th>
+                                <th style={thStyle}>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {appt.map((item, index) => (
-                                <tr key={index}>
-                                    <td>{item.doctorName}</td>
-                                    <td>{item.forPatient}</td>
-                                    <td>{item.status}</td>
-                                    <td>{item.time}</td>
-                                    <td><button onClick={() => buttonOnClick(appt[index])}>Complete</button>
+                                <tr key={index} style={{ borderBottom: "1px solid #ddd" }}>
+                                    <td style={trStyle} >{item.doctorName}</td>
+                                    <td style={trStyle}>{item.forPatient}</td>
+                                    <td style={trStyle}>{item.status}</td>
+                                    <td style={trStyle}>{item.time}</td>
+                                    <td >
+                                        <button
+                                            onClick={() => buttonOnClick(appt[index])}
+                                            style={buttonStyle}
+                                            onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
+                                            onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}
+                                        >
+                                            Complete
+                                        </button>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
-                    <button onClick={signOutDoctor}>Sign Out</button>
 
+                    <button
+                        onClick={signOutDoctor}
+                        style={buttonStyle}
+                        onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
+                        onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}
+                    >
+                        Sign Out
+                    </button>
                 </div>
+
 
             }
         </>
