@@ -1,5 +1,7 @@
 View demo at https://drive.google.com/drive/u/0/folders/17qaYgy2qzacETGfkvKOCWs6-yT9mSTow
 
+Viist at https://clinix-sphere-react-doctor-paramvir.vercel.app/
+
 Navigate to the root directory. </br>
 Run `npm install` in your terminal to download the required npm packages. </br>
 Run `npm start` to start the React in your brower at http://localhost:3000/ </br>
@@ -16,4 +18,5 @@ Run `npm start` to start the React in your brower at http://localhost:3000/ </br
 <img src="demo/7.png" width=40% height=40%>
 <img src="demo/8.png" width=40% height=40%>
 <img src="demo/9.png" width=40% height=40%>
+<img src="demo/10.png" width=40% height=40%>
 </p>
