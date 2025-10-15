@@ -21,11 +21,6 @@ export function Pres() {
         _id: ""
     })
 
-    console.log("crent data")
-    console.table(location.state.currentAppt.forPatient)
-
-
-
     async function addPres() {
 
         const response = await fetch(
@@ -40,10 +35,9 @@ export function Pres() {
             })
 
         if (!response.ok) {
+            alert("Something went wrong.")
             throw new Error(response.statusText)
         }
-
-        console.log("Pres added to mongo:", pres)
 
     }
 
@@ -60,10 +54,9 @@ export function Pres() {
         )
 
         if (!response.ok) {
+            alert("Something went wrong.")
             throw new Error(response.statusText)
         }
-
-        console.log(`${pres._id} App mark as completed`)
 
     }
 
@@ -84,9 +77,14 @@ export function Pres() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addPres()
-        markAppointmentAsCompleted()
-        navigate(-1)
+        try {
+            addPres()
+            markAppointmentAsCompleted()
+            navigate(-1)
+        } catch (error) {
+            console.error(error)
+        }
+
     };
 
 
@@ -127,7 +125,7 @@ export function Pres() {
 
                         <button
                             type="submit"
-                            style={{...buttonStyle, flex: 1}}
+                            style={{ ...buttonStyle, flex: 1 }}
                             onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
                             onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}>
                             Submit
@@ -135,7 +133,7 @@ export function Pres() {
                         <button
                             type="button"
                             onClick={() => navigate(-1)}
-                            style={{...buttonStyle, flex: 1}}
+                            style={{ ...buttonStyle, flex: 1 }}
                             onMouseOver={(e) => (e.target.style.backgroundColor = "#555")}
                             onMouseOut={(e) => (e.target.style.backgroundColor = "#333")}>
                             Cancel

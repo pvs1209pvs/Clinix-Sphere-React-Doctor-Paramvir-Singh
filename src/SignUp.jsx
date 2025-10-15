@@ -41,17 +41,18 @@ export function SignUp() {
                 body: JSON.stringify(user)
             });
 
-    
-        if(response.ok){
-        const data = await response.json();
-        saveLogin(data)
-        navigate("/appt")
-        }
-        else {
-            alert("Invalid credentials or username alrady exists")
-        }
 
-
+        if (response.ok) {
+            const data = await response.json();
+            saveLogin(data)
+            navigate("/appt")
+        }
+        else if (response.status == 400) {
+            alert("Username alrady exists")
+        }
+        else if (response.status >= 500) {
+            alert("Something went wrong")
+        }
 
     }
 
@@ -61,7 +62,7 @@ export function SignUp() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                                 paddingTop: "10vh",
+                paddingTop: "10vh",
 
             }}
         >

@@ -15,7 +15,6 @@ export function Appt() {
         const params = new URLSearchParams();
         params.append("docId", docId)
 
-
         const response = await fetch(
             `https://clinix-sphere-express-backend-param.vercel.app/appt?${params}`,
             {
@@ -26,7 +25,7 @@ export function Appt() {
         )
 
         if (!response.ok) {
-            throw new Error(response.status)
+            alert("Something went wrong.")
         }
 
         return await response.json()
@@ -90,14 +89,11 @@ export function Appt() {
                 token &&
                 appt.length > 0 &&
 
-                <div
-                    style={{ padding: "24px" }}
-                >
+                <div style={{ padding: "24px" }}>
+
                     <h2 style={{ marginBottom: "16px", color: "#222" }}>Pending Appointments</h2>
 
-                    <table
-                        style={tableStyle}
-                    >
+                    <table style={tableStyle}>
                         <thead style={{ backgroundColor: "#eee" }}>
                             <tr>
                                 <th style={thStyle}>Doctor Name</th>
@@ -137,6 +133,7 @@ export function Appt() {
                     >
                         Sign Out
                     </button>
+
                 </div>
 
 

@@ -43,7 +43,12 @@ export function SignIn() {
             saveLogin(data)
             navigate("/appt")
         }
-  
+        else if(response.status==401){
+            alert("Invalid credentials.")
+        }
+        else if(response.status>=500){
+            alert("Something went wrong.")
+        }
 
     }
 
