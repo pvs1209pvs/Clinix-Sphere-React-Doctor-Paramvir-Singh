@@ -8,7 +8,7 @@ export function SignUp() {
 
     const navigate = useNavigate()
 
-    const { token, setToken, docId, setDocId } = useAuth()
+    const { token, setToken, docId, setDocId, saveLogin } = useAuth()
 
     const [user, setUser] = useState({
         name: "",
@@ -41,17 +41,19 @@ export function SignUp() {
                 body: JSON.stringify(user)
             });
 
+    
+        if(response.ok){
         const data = await response.json();
-        setToken(data.token)
+        saveLogin(data)
         navigate("/appt")
+        }
+        else {
+            alert("Invalid credentials or username alrady exists")
+        }
+
+
+
     }
-
-    // const inputStyle = {
-    //     padding: "8px",
-    //     borderRadius: "8px",
-    //     border: "1px solid",
-    // }
-
 
     return (
         <div

@@ -6,7 +6,7 @@ import { buttonStyle, tableStyle, thStyle, trStyle } from './App';
 export function Appt() {
 
     const navigate = useNavigate()
-    const { token, setToken, docId, setDocId } = useAuth()
+    const { token, setToken, docId, setDocId, delLogin } = useAuth()
     const [appt, setAppt] = useState([])
 
     async function fetchAppt() {
@@ -63,11 +63,11 @@ export function Appt() {
     }
 
     function signOutDoctor() {
-        setToken(null)
-        setDocId(null)
+        delLogin()
+        // setToken(null)
+        // setDocId(null)
         navigate("/signin")
     }
-
 
 
     return (
@@ -75,15 +75,15 @@ export function Appt() {
 
             {
                 !token &&
-                <h3>You need to login before you can proceed.</h3>
+                <h3 style={{ padding: "24px" }}>You need to login before you can proceed.</h3>
             }
             {
                 token &&
                 appt.length == 0 &&
-                <div>
+                <div style={{ padding: "24px" }}>
                     <h3>Welcome Dr {docId}</h3>
                     <h3>All appointments are complete. You are all caught up!</h3>
-                    <button onClick={signOutDoctor}>Sign Out</button>
+                    <button onClick={signOutDoctor} style={buttonStyle}>Sign Out</button>
                 </div>
 
             }
@@ -93,10 +93,7 @@ export function Appt() {
                 appt.length > 0 &&
 
                 <div
-                    style={{
-                        padding: "24px",
-
-                    }}
+                    style={{ padding: "24px" }}
                 >
                     <h3 style={{ marginBottom: "16px", color: "#222" }}>Welcome Dr {docId}</h3>
 

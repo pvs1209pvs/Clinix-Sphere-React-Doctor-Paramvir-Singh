@@ -6,7 +6,7 @@ import { buttonStyle, inputStyle } from "./App";
 export function SignIn() {
 
     const navigate = useNavigate()
-    const { token, setToken, docId, setDocId } = useAuth()
+    const { token, setToken, docId, setDocId, saveLogin } = useAuth()
 
     const [user, setUser] = useState({
         username: "",
@@ -31,6 +31,7 @@ export function SignIn() {
 
         const response = await fetch(
             "https://clinix-sphere-express-backend-param.vercel.app/login/doctor",
+            // "http://localhost:8080/login/doctor",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -39,10 +40,10 @@ export function SignIn() {
 
         if (response.ok) {
             const data = await response.json();
-            setToken(data.token)
-            setDocId(data.doctorId)
+            saveLogin(data)
             navigate("/appt")
         }
+  
 
     }
 
