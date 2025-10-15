@@ -28,14 +28,15 @@ export const tableStyle = {
 	backgroundColor: "#fff",
 	borderRadius: "8px",
 }
-function App() {
 
-	const navLinkStyle = {
-		textDecoration: "none",
-		padding: "12px",
-		borderRadius: "6px",
-		border: "1px solid",
-	};
+const navLinkStyle = {
+	textDecoration: "none",
+	padding: "16px",
+	borderRadius: "8px",
+	border: "1px solid",
+};
+
+function App() {
 
 	return (
 
@@ -49,6 +50,7 @@ function App() {
 					padding: "16px",
 				}}
 			>
+
 
 				<NavLink
 					to="/appt"
