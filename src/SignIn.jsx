@@ -6,7 +6,7 @@ import { buttonStyle, inputStyle } from "./App";
 export function SignIn() {
 
     const navigate = useNavigate()
-    const { token, setToken, docId, setDocId, saveLogin } = useAuth()
+    const { saveLogin } = useAuth()
 
     const [user, setUser] = useState({
         username: "",
@@ -46,7 +46,6 @@ export function SignIn() {
   
 
     }
-
 
 
     return (

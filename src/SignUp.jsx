@@ -8,7 +8,7 @@ export function SignUp() {
 
     const navigate = useNavigate()
 
-    const { token, setToken, docId, setDocId, saveLogin } = useAuth()
+    const { saveLogin } = useAuth()
 
     const [user, setUser] = useState({
         name: "",
