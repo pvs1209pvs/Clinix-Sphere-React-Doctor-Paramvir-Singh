@@ -43,10 +43,10 @@ export function SignIn() {
             saveLogin(data)
             navigate("/appt")
         }
-        else if(response.status==401){
+        else if (response.status == 401) {
             alert("Invalid credentials.")
         }
-        else if(response.status>=500){
+        else if (response.status >= 500) {
             alert("Something went wrong.")
         }
 
@@ -56,7 +56,7 @@ export function SignIn() {
     return (
         <div
             style={{
-                 paddingTop: "10vh",
+                paddingTop: "10vh",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -82,8 +82,11 @@ export function SignIn() {
                         value={user.username}
                         onChange={handleChange}
                         required
-                        autoCapitalize="false"
-                        autoCorrect="false"
+                        type="text"
+                        inputMode="text"
+                        autoCapitalize="none"
+                        autoCorrect="off"
+                        spellCheck="false"
                         style={inputStyle}
                     />
 
@@ -92,8 +95,6 @@ export function SignIn() {
                         placeholder="Password"
                         type="password"
                         value={user.password}
-                        autoCapitalize="false"
-                        autoCorrect="false"
                         onChange={handleChange}
                         required
                         style={inputStyle}

@@ -99,11 +99,14 @@ export function SignUp() {
                     <input
                         name="username"
                         placeholder="Username"
+                        required
+                         type="text"
+  inputMode="text"
+  autoCapitalize="none"
+  autoCorrect="off"
+  spellCheck="false"
                         value={user.username}
                         onChange={handleChange}
-                        required
-                        autoCorrect="false"
-                        autoCapitalize="false"
                         style={inputStyle}
                     />
                     <input
@@ -113,8 +116,6 @@ export function SignUp() {
                         value={user.password}
                         onChange={handleChange}
                         required
-                        autoCorrect="false"
-                        autoCapitalize="false"
                         style={inputStyle}
                     />
                     <button
