@@ -102,6 +102,7 @@ export function SignUp() {
                         value={user.username}
                         onChange={handleChange}
                         required
+                        autoCapitalize="false"
                         style={inputStyle}
                     />
                     <input
@@ -111,6 +112,7 @@ export function SignUp() {
                         value={user.password}
                         onChange={handleChange}
                         required
+                        autoCapitalize="false"
                         style={inputStyle}
                     />
                     <button
