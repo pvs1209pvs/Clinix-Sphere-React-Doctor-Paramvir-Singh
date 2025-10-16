@@ -102,6 +102,7 @@ export function SignUp() {
                         value={user.username}
                         onChange={handleChange}
                         required
+                        autoCorrect="false"
                         autoCapitalize="false"
                         style={inputStyle}
                     />
@@ -112,6 +113,7 @@ export function SignUp() {
                         value={user.password}
                         onChange={handleChange}
                         required
+                        autoCorrect="false"
                         autoCapitalize="false"
                         style={inputStyle}
                     />

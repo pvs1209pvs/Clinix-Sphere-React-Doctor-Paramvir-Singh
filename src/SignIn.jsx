@@ -83,6 +83,7 @@ export function SignIn() {
                         onChange={handleChange}
                         required
                         autoCapitalize="false"
+                        autoCorrect="false"
                         style={inputStyle}
                     />
 
@@ -92,6 +93,7 @@ export function SignIn() {
                         type="password"
                         value={user.password}
                         autoCapitalize="false"
+                        autoCorrect="false"
                         onChange={handleChange}
                         required
                         style={inputStyle}
