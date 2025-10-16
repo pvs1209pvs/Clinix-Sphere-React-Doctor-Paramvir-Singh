@@ -100,11 +100,10 @@ export function SignUp() {
                         name="username"
                         placeholder="Username"
                         required
-                         type="text"
-  inputMode="text"
-  autoCapitalize="none"
-  autoCorrect="off"
-  spellCheck="false"
+                        type="text" 
+                        autocorrect="off" 
+                        autocapitalize="none" 
+                        autocomplete="off"
                         value={user.username}
                         onChange={handleChange}
                         style={inputStyle}

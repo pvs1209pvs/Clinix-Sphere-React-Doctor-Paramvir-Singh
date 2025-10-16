@@ -82,11 +82,7 @@ export function SignIn() {
                         value={user.username}
                         onChange={handleChange}
                         required
-                        type="text"
-                        inputMode="text"
-                        autoCapitalize="none"
-                        autoCorrect="off"
-                        spellCheck="false"
+                       type="text" autocorrect="off" autocapitalize="none" autocomplete="off"
                         style={inputStyle}
                     />
 
